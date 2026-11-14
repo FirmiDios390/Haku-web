@@ -1,0 +1,363 @@
+# HAIKU HOSTEL — PROJECT BRIEF
+
+## 1. Descripción del proyecto
+
+Desarrollar una página web oficial para HAIKU HOSTEL.
+
+El objetivo es crear una presencia digital moderna, original y profesional que permita presentar el alojamiento, mostrar sus instalaciones, transmitir confianza y conseguir reservas directas.
+
+La página será principalmente informativa y comercial.
+
+Los visitantes podrán conocer el hostel y acceder fácilmente a sus canales de reserva y redes sociales.
+
+## 2. Objetivos
+
+- Crear una identidad digital profesional para HAIKU HOSTEL.
+- Presentar sus habitaciones e instalaciones.
+- Mostrar fotografías reales.
+- Transmitir confianza a los potenciales huéspedes.
+- Facilitar el contacto.
+- Conseguir reservas directas mediante BananaDesk.
+- Dirigir visitantes al Instagram oficial del hostel.
+
+## 3. Alcance de esta primera etapa
+
+En esta etapa únicamente se desarrollará y probará la página web localmente.
+
+NO realizar todavía:
+
+- Compra de dominio.
+- Configuración de hosting.
+- Despliegue en Vercel.
+- Publicación en internet.
+- Configuración de DNS.
+- Integraciones externas complejas.
+
+El objetivo es terminar primero la web y aprobar su diseño y funcionamiento.
+
+La publicación se evaluará en una etapa posterior.
+
+## 4. Arquitectura técnica
+
+Tecnologías preferidas:
+
+- Next.js.
+- React.
+- TypeScript.
+- Tailwind CSS o CSS personalizado.
+
+Utilizar componentes reutilizables y una arquitectura sencilla.
+
+La página debe poder ejecutarse localmente mediante el servidor de desarrollo de Next.js.
+
+No necesitamos:
+
+- Base de datos.
+- Backend propio.
+- Sistema de autenticación.
+- Panel administrativo.
+- Sistema propio de reservas.
+- Procesamiento de pagos.
+
+## 5. Sistema de reservas — BananaDesk
+
+HAIKU HOSTEL utiliza BananaDesk como sistema externo de reservas.
+
+BananaDesk proporciona un enlace que redirige al huésped hacia su motor de reservas.
+
+No es posible insertar el motor de reservas dentro de nuestra página web.
+
+Por tanto:
+
+- No desarrollar un sistema propio de reservas.
+- No utilizar iframes para BananaDesk.
+- No crear calendarios de disponibilidad.
+- No gestionar pagos.
+- No almacenar información de huéspedes.
+
+### Enlace temporal de prueba
+
+Por el momento no tenemos el enlace definitivo de BananaDesk.
+
+Implementar temporalmente:
+
+https://www.google.com
+
+Todos los botones de reservas deben utilizar este enlace durante las pruebas.
+
+IMPORTANTE:
+
+Crear una configuración centralizada para poder sustituir posteriormente la URL temporal por el enlace real de BananaDesk sin modificar múltiples componentes.
+
+Ejemplo conceptual:
+
+BOOKING_URL = "https://www.google.com"
+
+Identificar claramente esta URL como temporal.
+
+## 6. Instagram y redes sociales
+
+Incluir accesos a las redes sociales del hostel.
+
+Instagram debe tener especial protagonismo.
+
+Implementar:
+
+- Icono reconocible de Instagram.
+- Enlace a Instagram.
+- Acceso desde el footer.
+- Acceso desde la sección de contacto.
+- Posibilidad de incluir un enlace en el header si el diseño lo permite.
+
+### Enlace temporal
+
+Mientras no tengamos el Instagram oficial, utilizar:
+
+https://www.google.com
+
+El enlace debe estar centralizado en la configuración del proyecto.
+
+Ejemplo conceptual:
+
+INSTAGRAM_URL = "https://www.google.com"
+
+Identificar claramente que es una URL temporal.
+
+Cuando tengamos el enlace real, solo debe ser necesario cambiar la configuración.
+
+Los enlaces externos deben abrirse de forma segura.
+
+## 7. Estructura de la página web
+
+### 7.1. Header
+
+- Logo oficial HAIKU HOSTEL.
+- Navegación principal.
+- Inicio.
+- Habitaciones.
+- Experiencia.
+- Galería.
+- Ubicación.
+- Contacto.
+- Botón destacado de RESERVAR.
+- Acceso a Instagram mediante su icono.
+
+Debe tener una versión móvil con menú intuitivo.
+
+### 7.2. Hero
+
+La sección visual más importante.
+
+Incluir:
+
+- Fotografía principal impactante.
+- Nombre HAIKU HOSTEL.
+- Mensaje de bienvenida.
+- Descripción breve.
+- Botón de reservas.
+- Diseño editorial moderno.
+
+### 7.3. Presentación
+
+Presentar la personalidad del alojamiento.
+
+Incluir texto descriptivo y fotografías complementarias.
+
+### 7.4. Habitaciones
+
+Mostrar los diferentes tipos de habitaciones.
+
+Cada una podrá incluir:
+
+- Nombre.
+- Fotografías.
+- Descripción.
+- Capacidad.
+- Características.
+- Servicios.
+- Botón de reserva.
+
+No inventar precios ni características.
+
+### 7.5. Experiencia e instalaciones
+
+Mostrar las instalaciones y servicios reales del hostel.
+
+### 7.6. Galería
+
+Crear una galería fotográfica visualmente atractiva.
+
+Utilizar composiciones editoriales y diferentes formatos de imagen.
+
+### 7.7. Ubicación
+
+Incluir dirección y mapa cuando se disponga de la información necesaria.
+
+### 7.8. Opiniones
+
+Preparar una sección para testimonios reales.
+
+No inventar opiniones ni puntuaciones.
+
+### 7.9. Contacto
+
+Incluir los canales oficiales disponibles:
+
+- Instagram.
+- WhatsApp.
+- Correo electrónico.
+- Dirección.
+
+No inventar datos de contacto.
+
+### 7.10. Footer
+
+Incluir:
+
+- Logo.
+- Navegación.
+- Redes sociales.
+- Instagram.
+- Contacto.
+- Botón de reservas.
+
+## 8. Responsive Design
+
+La página debe ser completamente responsive.
+
+Diseñar y probar las siguientes resoluciones:
+
+- Móvil: 375 px.
+- Móvil grande: 430 px.
+- Tablet: 768 px.
+- Laptop: 1366 px.
+- Escritorio: 1920 px.
+
+Requisitos:
+
+- Menú adaptado a dispositivos móviles.
+- Imágenes correctamente dimensionadas.
+- Tipografías adaptables.
+- Botones fáciles de utilizar mediante pantallas táctiles.
+- Evitar scroll horizontal.
+- Reorganizar composiciones editoriales sin perder calidad visual.
+- Mantener una experiencia consistente en todos los dispositivos.
+
+La versión móvil no debe ser simplemente una versión reducida de escritorio. Debe tener una composición propia y bien diseñada.
+
+## 9. Sistema de configuración
+
+Centralizar la información del alojamiento en archivos fáciles de modificar.
+
+Crear una configuración que permita cambiar:
+
+- Nombre del hostel.
+- Descripción.
+- Logo.
+- Dirección.
+- Teléfono.
+- Correo.
+- Instagram.
+- Enlace de BananaDesk.
+- Fotografías.
+- Habitaciones.
+- Servicios.
+
+Los enlaces temporales de prueba deben estar centralizados en un único lugar.
+
+No repetir URLs en múltiples componentes.
+
+## 10. Identidad visual
+
+Seguir estrictamente el documento:
+
+docs/DESIGN_BRIEF.md
+
+Utilizar el logo oficial:
+
+public/images/logo.png
+
+Respetar la identidad visual de HAIKU HOSTEL.
+
+## 11. Rendimiento y calidad
+
+- Optimizar fotografías.
+- Implementar lazy loading cuando corresponda.
+- Utilizar HTML semántico.
+- Implementar SEO básico.
+- Mantener buena accesibilidad.
+- Evitar dependencias innecesarias.
+- Mantener código limpio y organizado.
+- Respetar preferencias de movimiento reducido.
+
+## 12. Metodología de desarrollo
+
+### Fase 1 — Análisis
+
+Leer los documentos del proyecto y analizar los recursos disponibles.
+
+### Fase 2 — Diseño
+
+Definir la composición visual y desarrollar inicialmente el Header y Hero.
+
+Ejecutar localmente para revisar el diseño.
+
+### Fase 3 — Desarrollo
+
+Construir todas las secciones de la página.
+
+Incorporar las fotografías y contenidos disponibles.
+
+### Fase 4 — Funcionalidades
+
+Comprobar:
+
+- Navegación.
+- Botones de reservas.
+- Enlace temporal de BananaDesk.
+- Enlace temporal de Instagram.
+- Iconos de redes sociales.
+- Menú móvil.
+
+### Fase 5 — Pruebas
+
+Probar la página en diferentes resoluciones.
+
+Corregir errores visuales y funcionales.
+
+Ejecutar pruebas de producción localmente cuando corresponda.
+
+### Fase 6 — Entrega
+
+Dejar el proyecto funcionando localmente y documentar:
+
+- Cómo ejecutar la web.
+- Cómo cambiar el enlace de BananaDesk.
+- Cómo cambiar el enlace de Instagram.
+- Cómo sustituir fotografías.
+- Cómo modificar textos y datos.
+
+No realizar despliegues ni configuraciones de hosting en esta etapa.
+
+## 13. Criterios de aceptación
+
+El proyecto estará listo cuando:
+
+- La identidad visual de HAIKU esté correctamente aplicada.
+- Todas las secciones estén construidas.
+- El diseño sea responsive.
+- Los botones de reservas funcionen.
+- Instagram tenga su icono y enlace funcional.
+- Los enlaces temporales apunten a Google.
+- Las URLs puedan cambiarse desde una configuración centralizada.
+- No existan enlaces rotos.
+- La web funcione localmente.
+- El código esté organizado y sea fácil de mantener.
+
+## 14. Prioridad
+
+La prioridad absoluta es construir una web visualmente excelente, moderna, original y profesional para HAIKU HOSTEL.
+
+Primero terminar y aprobar la página.
+
+La publicación, el hosting y el dominio serán tareas de una etapa posterior.

@@ -1,0 +1,162 @@
+# HAIKU HOSTEL — DESIGN BRIEF
+
+## 1. Identidad de marca
+
+Nombre: HAIKU HOSTEL.
+
+La identidad visual debe partir del logo oficial proporcionado en `public/images/logo.png`.
+
+La marca utiliza principalmente azul eléctrico sobre fondo blanco.
+
+La página debe respetar la identidad original y desarrollar un lenguaje visual digital propio.
+
+No rediseñar, deformar, recolorear ni modificar arbitrariamente el logo.
+
+## 2. Dirección artística
+
+Concepto: EDITORIAL MODERNO.
+
+La página debe transmitir:
+- Modernidad.
+- Personalidad.
+- Confianza.
+- Hospitalidad.
+- Profesionalismo.
+- Una experiencia de alojamiento memorable.
+
+Debe parecer una web diseñada a medida por un estudio creativo.
+
+Evitar:
+- Plantillas genéricas de hoteles.
+- Diseños excesivamente corporativos.
+- Tarjetas repetitivas.
+- Gradientes innecesarios.
+- Exceso de elementos decorativos.
+- Sombras exageradas.
+- Animaciones excesivas.
+
+## 3. Sistema de colores
+
+Colores de marca:
+
+- Primary Blue: #0045F8
+- Secondary Blue: #2143F4
+- White: #FFFFFF
+- Warm White: #F5F5F2
+- Soft Black: #17191F
+- Secondary Gray: #777B85
+
+Reglas de uso:
+
+- El blanco será el fondo predominante.
+- El azul será el color distintivo de la marca.
+- Utilizar azul para botones principales, enlaces destacados y detalles gráficos.
+- Utilizar negro suave para los textos principales.
+- Utilizar gris para información secundaria.
+- El blanco cálido puede utilizarse para alternar secciones.
+- Mantener suficiente contraste y legibilidad.
+
+No utilizar el azul en absolutamente todos los elementos. Debe funcionar como un acento visual reconocible.
+
+## 4. Tipografía
+
+Probar inicialmente:
+
+- Manrope para titulares.
+- DM Sans para textos y elementos de interfaz.
+
+Utilizar jerarquías tipográficas claras.
+
+Los titulares deben tener personalidad editorial, tamaños generosos y buen espaciado.
+
+Evitar textos demasiado pequeños y tipografías decorativas difíciles de leer.
+
+## 5. Composición y layout
+
+- Diseños editoriales.
+- Composiciones asimétricas.
+- Fotografías grandes.
+- Espacios en blanco generosos.
+- Secciones con diferentes ritmos visuales.
+- Uso de grids cuando aporte valor.
+- Márgenes consistentes.
+- Excelente adaptación a pantallas pequeñas.
+
+No repetir el mismo patrón de diseño en todas las secciones.
+
+## 6. Header y navegación
+
+Crear un header minimalista.
+
+- Logo oficial de HAIKU.
+- Navegación sencilla.
+- Botón destacado de RESERVAR.
+- Comportamiento responsive.
+- Menú móvil intuitivo.
+
+## 7. Botones
+
+El botón principal de reservas debe destacar mediante el azul de marca.
+
+Utilizar:
+- Bordes y formas coherentes.
+- Tipografía legible.
+- Estados hover y focus.
+- Transiciones discretas.
+
+Mantener el mismo sistema de botones en toda la página.
+
+## 8. Fotografía
+
+Las fotografías deben ser protagonistas.
+
+Priorizar:
+- Fotografías reales.
+- Buena resolución.
+- Iluminación natural.
+- Composiciones cuidadas.
+- Imágenes horizontales para secciones principales.
+- Imágenes verticales para composiciones editoriales.
+
+No inventar fotografías de instalaciones reales.
+
+Optimizar todas las imágenes para rendimiento web.
+
+## 9. Animaciones
+
+Utilizar animaciones sutiles:
+
+- Aparición progresiva de elementos.
+- Transiciones suaves.
+- Efectos hover discretos.
+- Movimiento moderado de fotografías cuando aporte valor.
+
+Respetar prefers-reduced-motion.
+
+No utilizar animaciones que dificulten la navegación.
+
+## 10. Responsive design
+
+Diseñar pensando primero en la experiencia visual completa.
+
+Escritorio:
+- Composiciones amplias.
+- Fotografías protagonistas.
+- Navegación horizontal.
+
+Móvil:
+- Menú simplificado.
+- Fotografías optimizadas.
+- Titulares adaptables.
+- Botones fáciles de pulsar.
+- Secciones reorganizadas sin perder personalidad.
+
+## 11. Regla principal
+
+El resultado debe ser una web original para HAIKU HOSTEL.
+
+La identidad debe reconocerse por su uso del azul, su tratamiento tipográfico, su fotografía y sus composiciones editoriales.
+
+No limitarse a cambiar los colores de una plantilla existente.
+
+La calidad visual es una prioridad fundamental del proyecto.
