@@ -1,6 +1,6 @@
 # HAKU HOSTEL
 
-Primera versión local de la web oficial, desarrollada con Next.js, React, TypeScript y CSS personalizado.
+Prototipo local bilingüe de la web oficial, desarrollado con Next.js, React, TypeScript, Lucide y CSS personalizado.
 
 ## Ejecutar localmente
 
@@ -21,10 +21,12 @@ npm run build
 ## Actualizar contenido
 
 - El enlace temporal de BananaDesk está en [`src/config/site.ts`](src/config/site.ts), en `bookingUrl`. Instagram ya apunta a la cuenta oficial `@haku.hostel`.
-- En el mismo archivo se editan nombre, descripción y datos de cada sede en `destinations`. Lima está activa y Cusco queda preparado sin contenido inventado.
+- En el mismo archivo se editan dirección, Google Maps, fotografías, habitaciones, premio, fuentes y estado de cada sede. Lima está activa y Cusco permanece oculto.
 - Las fotografías originales están en `public/images`. Para sustituirlas, coloca el archivo nuevo allí y actualiza su ruta en la configuración.
-- La portada (`/`) presenta los destinos. La página de Lima (`/lima`) reúne habitaciones, espacios, galería, ubicación, opiniones y contacto. La página de Cusco se añadirá cuando exista contenido oficial.
-- El carrusel de la portada está preparado en [`src/components/MediaCarousel.tsx`](src/components/MediaCarousel.tsx). Añade sus fotografías oficiales a [`src/config/media.ts`](src/config/media.ts); mientras la lista esté vacía muestra un espacio editorial sin imágenes ficticias.
-- La dirección, el teléfono y el correo permanecen vacíos hasta recibir los datos oficiales. El mapa y las opiniones reales se incorporarán entonces.
+- Los textos en español e inglés se mantienen en [`src/i18n/dictionaries.ts`](src/i18n/dictionaries.ts).
+- `/` detecta el idioma del navegador y redirige a `/es` o `/en`. Las páginas de habitaciones son `/es/habitaciones` y `/en/rooms`.
+- La landing reúne experiencia, resumen de habitaciones, espacios, galería, ubicación, reglas y reserva. Las reseñas están preparadas en configuración pero desactivadas hasta contar con contenido aprobado.
+- Teléfono, correo y la condición fiscal relacionada con residencia/TAM no se publican hasta recibir una versión oficial validada.
+- Los iconos de interfaz provienen de Lucide, bajo licencia ISC. El logo y el icono de Instagram se mantienen como recursos propios.
 
 Los briefs recibidos en este checkout están en `docs/PROJECT_BRIEF.txt` y `docs/DESIGN_BRIEF.txt`; el logo oficial está en `public/logo.png`. Si se publica más adelante, define `NEXT_PUBLIC_SITE_URL` con el dominio definitivo para los metadatos sociales.

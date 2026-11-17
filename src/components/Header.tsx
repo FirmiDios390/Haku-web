@@ -1,34 +1,49 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { navigation, site } from "@/config/site";
+import { homePath, roomsPath, site, type Locale } from "@/config/site";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { ArrowIcon, InstagramIcon } from "./Icons";
 
-export function Header() {
+export function Header({ locale, dict, languageHref }: { locale: Locale; dict: Dictionary; languageHref: string }) {
   const [open, setOpen] = useState(false);
+  const home = homePath(locale);
+  const navigation = [
+    { label: dict.nav.rooms, href: roomsPath(locale) },
+    { label: dict.nav.experience, href: `${home}#experience` },
+    { label: dict.nav.gallery, href: `${home}#gallery` },
+    { label: dict.nav.location, href: `${home}#location` },
+    { label: dict.nav.info, href: `${home}#stay-info` },
+  ];
+  const switchLanguage = () => {
+    document.cookie = `haku_locale=${locale === "es" ? "en" : "es"};path=/;max-age=31536000;samesite=lax`;
+    setOpen(false);
+  };
 
   return (
     <header className="site-header">
       <div className="header-inner shell">
-        <a className="brand" href="/" aria-label="HAKU HOSTEL, ir al inicio" onClick={() => setOpen(false)}>
-          <Image src={site.logo} alt="" width={55} height={59} priority />
+        <Link className="brand" href={home} aria-label="HAKU HOSTEL" onClick={() => setOpen(false)}>
+          <Image src={site.logo} alt="" width={52} height={56} priority />
           <span className="brand-name">HAKU<span>HOSTEL</span></span>
-        </a>
-        <nav className="desktop-nav" aria-label="Navegación principal">
-          {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+        </Link>
+        <nav className="desktop-nav" aria-label={locale === "es" ? "Navegación principal" : "Primary navigation"}>
+          {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </nav>
         <div className="header-actions">
-          <a className="icon-link header-instagram" href={site.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial de HAKU HOSTEL"><InstagramIcon /></a>
-          <a className="button button-blue header-book" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">Reservar <ArrowIcon diagonal /></a>
-          <button type="button" className={`menu-toggle ${open ? "is-open" : ""}`} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}><span /><span /></button>
+          <a className="language-switch" href={languageHref} hrefLang={locale === "es" ? "en" : "es"} onClick={switchLanguage}>{locale === "es" ? "EN" : "ES"}</a>
+          <a className="button button-blue header-book" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">{dict.nav.book} <ArrowIcon diagonal /></a>
+          <button type="button" className={`menu-toggle ${open ? "is-open" : ""}`} aria-label={open ? dict.nav.close : dict.nav.menu} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}><span /><span /></button>
         </div>
       </div>
-      <nav id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-label="Navegación móvil" inert={!open}>
-        {navigation.map((item, index) => <a key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<ArrowIcon diagonal /></a>)}
+      <nav id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-label={locale === "es" ? "Navegación móvil" : "Mobile navigation"} inert={!open}>
+        {navigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<ArrowIcon diagonal /></Link>)}
         <div className="mobile-menu-bottom">
+          <a href={languageHref} onClick={switchLanguage}>{locale === "es" ? "English" : "Español"}</a>
           <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}><InstagramIcon /> Instagram</a>
-          <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Reservar estancia <ArrowIcon diagonal /></a>
+          <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{dict.nav.book} <ArrowIcon diagonal /></a>
         </div>
       </nav>
     </header>
