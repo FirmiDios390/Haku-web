@@ -26,5 +26,5 @@ export default async function LocaleLayout({ children, params }: Readonly<{ chil
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
-  return <html lang={lang}><body><a className="skip-link" href="#main-content">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>{children}<span className="sr-only">{dict.metadata.description}</span></body></html>;
+  return <html lang={lang} data-scroll-behavior="smooth"><body><a className="skip-link" href="#main-content">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>{children}<span className="sr-only">{dict.metadata.description}</span></body></html>;
 }

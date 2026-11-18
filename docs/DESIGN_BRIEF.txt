@@ -1,8 +1,8 @@
-# HAIKU HOSTEL — DESIGN BRIEF
+# HAKU HOSTEL — DESIGN BRIEF
 
 ## 1. Identidad de marca
 
-Nombre: HAIKU HOSTEL.
+Nombre: HAKU HOSTEL.
 
 La identidad visual debe partir del logo oficial proporcionado en `public/images/logo.png`.
 
@@ -88,7 +88,7 @@ No repetir el mismo patrón de diseño en todas las secciones.
 
 Crear un header minimalista.
 
-- Logo oficial de HAIKU.
+- Logo oficial de HAKU.
 - Navegación sencilla.
 - Botón destacado de RESERVAR.
 - Comportamiento responsive.
@@ -153,7 +153,7 @@ Móvil:
 
 ## 11. Regla principal
 
-El resultado debe ser una web original para HAIKU HOSTEL.
+El resultado debe ser una web original para HAKU HOSTEL.
 
 La identidad debe reconocerse por su uso del azul, su tratamiento tipográfico, su fotografía y sus composiciones editoriales.
 

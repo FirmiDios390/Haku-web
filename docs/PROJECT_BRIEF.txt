@@ -1,8 +1,8 @@
-# HAIKU HOSTEL — PROJECT BRIEF
+# HAKU HOSTEL — PROJECT BRIEF
 
 ## 1. Descripción del proyecto
 
-Desarrollar una página web oficial para HAIKU HOSTEL.
+Desarrollar una página web oficial para HAKU HOSTEL.
 
 El objetivo es crear una presencia digital moderna, original y profesional que permita presentar el alojamiento, mostrar sus instalaciones, transmitir confianza y conseguir reservas directas.
 
@@ -12,7 +12,7 @@ Los visitantes podrán conocer el hostel y acceder fácilmente a sus canales de 
 
 ## 2. Objetivos
 
-- Crear una identidad digital profesional para HAIKU HOSTEL.
+- Crear una identidad digital profesional para HAKU HOSTEL.
 - Presentar sus habitaciones e instalaciones.
 - Mostrar fotografías reales.
 - Transmitir confianza a los potenciales huéspedes.
@@ -61,7 +61,7 @@ No necesitamos:
 
 ## 5. Sistema de reservas — BananaDesk
 
-HAIKU HOSTEL utiliza BananaDesk como sistema externo de reservas.
+HAKU HOSTEL utiliza BananaDesk como sistema externo de reservas.
 
 BananaDesk proporciona un enlace que redirige al huésped hacia su motor de reservas.
 
@@ -131,7 +131,7 @@ Los enlaces externos deben abrirse de forma segura.
 
 ### 7.1. Header
 
-- Logo oficial HAIKU HOSTEL.
+- Logo oficial HAKU HOSTEL.
 - Navegación principal.
 - Inicio.
 - Habitaciones.
@@ -151,7 +151,7 @@ La sección visual más importante.
 Incluir:
 
 - Fotografía principal impactante.
-- Nombre HAIKU HOSTEL.
+- Nombre HAKU HOSTEL.
 - Mensaje de bienvenida.
 - Descripción breve.
 - Botón de reservas.
@@ -277,7 +277,7 @@ Utilizar el logo oficial:
 
 public/images/logo.png
 
-Respetar la identidad visual de HAIKU HOSTEL.
+Respetar la identidad visual de HAKU HOSTEL.
 
 ## 11. Rendimiento y calidad
 
@@ -343,7 +343,7 @@ No realizar despliegues ni configuraciones de hosting en esta etapa.
 
 El proyecto estará listo cuando:
 
-- La identidad visual de HAIKU esté correctamente aplicada.
+- La identidad visual de HAKU esté correctamente aplicada.
 - Todas las secciones estén construidas.
 - El diseño sea responsive.
 - Los botones de reservas funcionen.
@@ -356,7 +356,7 @@ El proyecto estará listo cuando:
 
 ## 14. Prioridad
 
-La prioridad absoluta es construir una web visualmente excelente, moderna, original y profesional para HAIKU HOSTEL.
+La prioridad absoluta es construir una web visualmente excelente, moderna, original y profesional para HAKU HOSTEL.
 
 Primero terminar y aprobar la página.
 
