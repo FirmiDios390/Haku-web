@@ -31,10 +31,8 @@ figure, h1, h2, h3, p { margin: 0; }
 
 .site-header { position: relative; z-index: 100; height: var(--header-height); border-bottom: 1px solid var(--line); background: rgba(247, 244, 238, 0.98); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); flex: none; }
-.brand img { width: 41px; height: 44px; object-fit: contain; }
-.brand-name { font-family: "Manrope", sans-serif; font-size: 15px; font-weight: 800; line-height: 1; letter-spacing: 0.2em; }
-.brand-name span { display: block; margin-top: 6px; font-size: 8px; letter-spacing: 0.4em; }
+.brand { display: inline-flex; align-items: center; color: var(--blue); flex: none; }
+.brand img { width: 80px; height: 61px; object-fit: contain; }
 .desktop-nav, .language-switch, .header-book { display: none; }
 .header-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
 .menu-toggle { width: 46px; height: 46px; display: grid; place-content: center; gap: 6px; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; }
@@ -217,7 +215,7 @@ figure, h1, h2, h3, p { margin: 0; }
 .footer { padding-block: 44px 24px; background: var(--ink); color: white; }
 .footer-grid { display: grid; gap: 30px; }
 .footer-brand { display: flex; align-items: center; gap: 16px; }
-.footer-brand img { width: 60px; height: 60px; object-fit: cover; border-radius: 50%; }
+.footer-brand img { width: 90px; height: 68px; flex: none; object-fit: contain; }
 .footer-brand p { color: #cbced6; font-size: 13px; line-height: 1.55; }
 .footer nav, .footer-links { display: grid; gap: 12px; align-content: start; }
 .footer nav a, .footer-links a { width: fit-content; color: #d9dbe1; font-size: 13px; }
@@ -332,8 +330,7 @@ figure, h1, h2, h3, p { margin: 0; }
 @media (min-width: 1120px) {
   .site-header { position: sticky; top: 0; backdrop-filter: blur(14px); }
   .header-inner { display: grid; grid-template-columns: minmax(165px,.85fr) auto minmax(200px,.85fr); gap: 24px; }
-  .brand img { width: 48px; height: 52px; }
-  .brand-name { font-size: 17px; }
+  .brand img { width: 88px; height: 67px; }
   .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(17px,1.6vw,30px); white-space: nowrap; font-size: 12px; font-weight: 650; }
   .desktop-nav a { position: relative; min-height: 38px; display: inline-flex; align-items: center; }
   .desktop-nav a:not(.nav-emphasis)::after { position: absolute; right: 0; bottom: 1px; left: 0; height: 1.5px; background: var(--blue); content: ""; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }

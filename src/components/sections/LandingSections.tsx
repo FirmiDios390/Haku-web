@@ -47,7 +47,7 @@ export function RoomsPreview({ locale, dict }: SectionProps) {
   ];
   return <section id="rooms" className="section rooms" aria-labelledby="rooms-title"><div className="shell rooms-layout">
     <div className="rooms-intro"><div className="section-kicker">{dict.rooms.kicker}</div><h2 id="rooms-title">{dict.rooms.title}<br /><em>{dict.rooms.accent}</em></h2><p>{dict.rooms.intro}</p><Link className="text-link" href={`${roomsPath(locale)}#rooms-top`}>{dict.rooms.seeAll}<ArrowIcon diagonal /></Link></div>
-    {rooms.map((room, index) => <article className="room-card" key={room.copy.title}><div className="room-card-image"><Image src={room.image} alt={room.copy.alt} fill sizes="(max-width: 899px) 100vw, 32vw" className="cover-image" /></div><div className="room-card-body"><div><span>0{index + 1}</span><h3>{room.copy.title}</h3><p>{room.copy.description}</p></div><BookingLink className="round-link"><span className="sr-only">{dict.rooms.book}: {room.copy.title}</span><ArrowIcon diagonal /></BookingLink></div></article>)}
+    {rooms.map((room, index) => <article className="room-card" key={room.copy.title}><div className="room-card-image"><Image src={room.image} alt={room.copy.alt} fill sizes="(max-width: 899px) 100vw, 32vw" className="cover-image" /></div><div className="room-card-body"><div><span>0{index + 1}</span><h3>{room.copy.title}</h3><p>{room.copy.description}</p></div><BookingLink className="round-link"><span className="sr-only">{dict.rooms.book}: {room.copy.title}</span></BookingLink></div></article>)}
     <p className="source-note">{dict.rooms.verified}</p>
   </div></section>;
 }

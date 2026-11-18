@@ -9,7 +9,7 @@ export const defaultLocale: Locale = "es";
 
 export const site = {
   name: "HAKU HOSTEL",
-  logo: "/logo.png",
+  logo: "/logo.png?v=20261117",
   bookingUrl: "https://banana-hotels.com/booking-engine/haku-hostel",
   instagramUrl: "https://www.instagram.com/haku.hostel/",
   address: "C. Comandante Juan G. Moore 304, Miraflores 15074, Perú",

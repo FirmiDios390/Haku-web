@@ -50,8 +50,7 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
     <header className="site-header">
       <div className="header-inner shell">
         <Link className="brand" href={home} aria-label="HAKU HOSTEL" onClick={() => setOpen(false)}>
-          <Image src={site.logo} alt="" width={52} height={56} priority />
-          <span className="brand-name">HAKU<span>HOSTEL</span></span>
+          <Image src={site.logo} alt="" width={88} height={67} priority unoptimized />
         </Link>
         <nav className="desktop-nav" aria-label={locale === "es" ? "Navegación principal" : "Primary navigation"}>
           {navigation.map((item) => <Link className={item.emphasis ? "nav-emphasis" : undefined} key={item.href} href={item.href} onClick={(event) => followNavigation(event, item.href)}>{item.label}</Link>)}

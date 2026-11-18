@@ -15,7 +15,7 @@ import { BookingFlow } from "@/components/BookingFlow";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  icons: { icon: "/logo.png" },
+  icons: { icon: site.logo },
   openGraph: { type: "website", siteName: site.name, images: [site.images.entrance] },
 };
 
