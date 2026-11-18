@@ -13,8 +13,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 18px); }
-body { margin: 0; min-width: 320px; overflow-x: hidden; background: var(--warm); color: var(--ink); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; }
+html { width: 100%; max-width: 100%; overflow-x: hidden; overflow-x: clip; overscroll-behavior-x: none; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 18px); }
+body { width: 100%; max-width: 100%; min-width: 0; margin: 0; overflow-x: hidden; overflow-x: clip; overscroll-behavior-x: none; background: var(--warm); color: var(--ink); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; }
 body, button, a { font-family: "DM Sans", sans-serif; }
 a { color: inherit; text-decoration: none; }
 button { color: inherit; }
@@ -140,7 +140,7 @@ figure, h1, h2, h3, p { margin: 0; }
 .gallery-heading > p { max-width: 420px; }
 .gallery-bento { display: none; }
 .gallery-tile { position: relative; }
-.gallery-rail { width: calc(100% + 16px); display: flex; gap: 10px; overflow-x: auto; padding: 2px 16px 14px 2px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.gallery-rail { width: calc(100% + 16px); display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; padding: 2px 16px 14px 2px; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .gallery-rail::-webkit-scrollbar { display: none; }
 .gallery-rail-item { position: relative; width: min(82vw, 370px); height: 410px; flex: none; overflow: hidden; padding: 0; border: 0; border-radius: 18px; background: var(--sand); cursor: zoom-in; scroll-snap-align: start; }
 .gallery-rail-item span, .gallery-tile span { position: absolute; right: 10px; bottom: 10px; left: 10px; padding: 10px 11px; border-radius: 8px; background: rgba(247,244,238,.9); color: var(--ink); font-size: 9px; font-weight: 800; letter-spacing: .07em; text-align: left; text-transform: uppercase; }
@@ -242,6 +242,10 @@ figure, h1, h2, h3, p { margin: 0; }
 .room-detail-copy li svg { color: var(--blue); }
 .room-page-note { margin-top: 28px; padding: 20px; display: flex; flex-direction: column; gap: 12px; border-radius: 14px; background: var(--sand); }
 .room-page-note p { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+@media (max-width: 360px) {
+  .hero-actions { grid-template-columns: 1fr; }
+}
 
 @media (min-width: 700px) {
   .shell { width: min(calc(100% - 56px), 1440px); }
