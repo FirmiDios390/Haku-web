@@ -11,6 +11,7 @@ import "@fontsource/dm-sans/600.css";
 import "../globals.css";
 import { isLocale, locales, site } from "@/config/site";
 import { getDictionary } from "@/i18n/dictionaries";
+import { BookingFlow } from "@/components/BookingFlow";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -26,5 +27,5 @@ export default async function LocaleLayout({ children, params }: Readonly<{ chil
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
-  return <html lang={lang} data-scroll-behavior="smooth"><body><a className="skip-link" href="#main-content">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>{children}<span className="sr-only">{dict.metadata.description}</span></body></html>;
+  return <html lang={lang} data-scroll-behavior="smooth"><body><a className="skip-link" href="#main-content">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a><BookingFlow locale={lang} dict={dict}>{children}</BookingFlow><span className="sr-only">{dict.metadata.description}</span></body></html>;
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, type MouseEvent } from "react";
 import { homePath, roomsPath, site, type Locale } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { BookingLink } from "@/components/BookingLink";
 import { ArrowIcon, InstagramIcon } from "./Icons";
 
 export function Header({ locale, dict, languageHref }: { locale: Locale; dict: Dictionary; languageHref: string }) {
@@ -57,7 +58,7 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
         </nav>
         <div className="header-actions">
           <a className="language-switch" href={languageHref} hrefLang={locale === "es" ? "en" : "es"} onClick={switchLanguage}>{locale === "es" ? "EN" : "ES"}</a>
-          <a className="button button-blue header-book" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">{dict.nav.book} <ArrowIcon diagonal /></a>
+          <BookingLink className="button button-blue header-book">{dict.nav.book}</BookingLink>
           <button type="button" className={`menu-toggle ${open ? "is-open" : ""}`} aria-label={open ? dict.nav.close : dict.nav.menu} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}><span /><span /></button>
         </div>
       </div>
@@ -66,7 +67,7 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
         <div className="mobile-menu-bottom">
           <a href={languageHref} onClick={switchLanguage}>{locale === "es" ? "English" : "Español"}</a>
           <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}><InstagramIcon /> Instagram</a>
-          <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{dict.nav.book} <ArrowIcon diagonal /></a>
+          <BookingLink onOpen={() => setOpen(false)}>{dict.nav.book}</BookingLink>
         </div>
       </nav>
     </header>

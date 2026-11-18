@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  CalendarClock, CalendarX, Clock3, Coffee, CreditCard,
-  DoorOpen, MapPin, Navigation, PawPrint, Plus, Wifi,
+  Clock3, Coffee, MapPin, Navigation, Wifi,
 } from "lucide-react";
 import { ArrowIcon, InstagramIcon } from "@/components/Icons";
 import { BookingLink } from "@/components/BookingLink";
 import { GalleryLightbox } from "@/components/GalleryLightbox";
+import { StayPolicies, StaySchedule } from "@/components/StayDetails";
 import { roomsPath, site, type Locale } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -65,16 +65,10 @@ export function SpacesSection({ dict }: SectionProps) {
 }
 
 export function StayInfoSection({ dict }: SectionProps) {
-  const details = [
-    { icon: CreditCard, title: dict.stay.payment, summary: dict.stay.paymentSummary, body: dict.stay.paymentBody },
-    { icon: CalendarX, title: dict.stay.cancellation, summary: dict.stay.cancellationSummary, body: dict.stay.cancellationBody },
-    { icon: DoorOpen, title: dict.stay.curfew, summary: dict.stay.curfewSummary, body: dict.stay.curfewBody },
-    { icon: PawPrint, title: dict.stay.pets, summary: dict.stay.petsSummary, body: dict.stay.petsBody },
-  ];
   return <section id="stay-info" className="section stay-info" aria-labelledby="stay-title"><div className="shell stay-grid">
     <div className="stay-intro"><div className="section-kicker">{dict.stay.kicker}</div><h2 id="stay-title">{dict.stay.title}<br /><em>{dict.stay.accent}</em></h2><p>{dict.stay.body}</p></div>
-    <div className="schedule-grid"><div><CalendarClock {...iconProps} /><p>Check-in</p><span>14:00</span><small>{dict.stay.checkIn}</small></div><div><Clock3 {...iconProps} /><p>Check-out</p><span>11:00</span><small>{dict.stay.checkOut}</small></div></div>
-    <div className="policy-grid">{details.map(({ icon: Icon, title, summary, body }) => <details className="rule-details" key={title}><summary><Icon {...iconProps} /><span><strong>{title}</strong><small>{summary}</small></span><Plus className="details-plus" size={20} aria-hidden="true" /></summary><p>{body}</p></details>)}</div>
+    <StaySchedule stay={dict.stay} />
+    <StayPolicies stay={dict.stay} />
   </div></section>;
 }
 
