@@ -14,9 +14,13 @@ type BookingFlowProps = {
   dict: Dictionary;
 };
 
+type BookingStep = "conditions" | "dates";
+
 export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const checkDatesRef = useRef<HTMLButtonElement>(null);
+  const backToConditionsRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const restoreFocusRef = useRef(true);
   const afterCloseRef = useRef<(() => void) | undefined>(undefined);
@@ -24,15 +28,28 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [session, setSession] = useState(0);
+  const [bookingStep, setBookingStep] = useState<BookingStep>("conditions");
+  const [widgetLoaded, setWidgetLoaded] = useState(false);
+  const previousStepRef = useRef<BookingStep>("conditions");
 
   const openBooking = useCallback((trigger: HTMLElement) => {
     if (dialogRef.current?.open || isOpen) return;
     triggerRef.current = trigger;
     restoreFocusRef.current = true;
     afterCloseRef.current = undefined;
+    setBookingStep("conditions");
+    setWidgetLoaded(false);
     setSession((current) => current + 1);
     setIsOpen(true);
   }, [isOpen]);
+
+  useEffect(() => {
+    const previousStep = previousStepRef.current;
+    previousStepRef.current = bookingStep;
+    if (!isOpen || previousStep === bookingStep) return;
+    if (bookingStep === "dates") backToConditionsRef.current?.focus();
+    else checkDatesRef.current?.focus();
+  }, [bookingStep, isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -88,6 +105,8 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
     dialogRef.current?.close();
     setIsClosing(false);
     setIsOpen(false);
+    setBookingStep("conditions");
+    setWidgetLoaded(false);
   }, []);
 
   const closeBooking = useCallback((options?: { restoreFocus?: boolean; afterClose?: () => void }) => {
@@ -125,6 +144,17 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
 
   const contextValue = useMemo(() => ({ openBooking }), [openBooking]);
 
+  const showDateSelector = () => {
+    setWidgetLoaded(false);
+    setBookingStep("dates");
+  };
+
+  const showConditions = () => {
+    setBookingStep("conditions");
+  };
+
+  const isDateStep = bookingStep === "dates";
+
   return <BookingFlowContext.Provider value={contextValue}>
     {children}
     <dialog
@@ -137,20 +167,39 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
       onCancel={(event) => { event.preventDefault(); closeBooking(); }}
       onClick={(event) => { if (event.target === event.currentTarget) closeBooking(); }}
     >
-      <section className="booking-sheet">
+      <section className={`booking-sheet${isDateStep ? " booking-sheet-dates" : ""}`}>
         <header className="booking-modal-header">
-          <div><span>HAKU HOSTEL / LIMA</span><h2 id="booking-modal-title">{dict.bookingModal.title}</h2><p id="booking-modal-subtitle">{dict.bookingModal.subtitle}</p></div>
+          <div>
+            {isDateStep && <button ref={backToConditionsRef} type="button" className="booking-modal-back" onClick={showConditions}>{dict.bookingModal.backToConditions}</button>}
+            <span>HAKU HOSTEL / LIMA</span>
+            <h2 id="booking-modal-title">{isDateStep ? dict.bookingModal.chooseDatesTitle : dict.bookingModal.title}</h2>
+            <p id="booking-modal-subtitle">{isDateStep ? dict.bookingModal.chooseDatesSubtitle : dict.bookingModal.subtitle}</p>
+          </div>
           <button ref={closeRef} type="button" className="booking-modal-close" aria-label={dict.bookingModal.close} onClick={() => closeBooking()}><X aria-hidden="true" /></button>
         </header>
-        <div className="booking-modal-scroll">
+        {isDateStep ? <div className="booking-modal-widget" data-loaded={widgetLoaded ? "true" : undefined}>
+          {!widgetLoaded && <p className="booking-widget-loading" role="status">{dict.bookingModal.widgetLoading}</p>}
+          <iframe
+            className="booking-widget-frame"
+            src={site.bookingEngineEmbedUrl}
+            title={dict.bookingModal.widgetTitle}
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            sandbox="allow-scripts allow-forms allow-same-origin"
+            allow="payment"
+            onLoad={() => setWidgetLoaded(true)}
+          />
+        </div> : <div className="booking-modal-scroll">
           <StaySchedule stay={dict.stay} variant="modal" />
           <div className="booking-rules-label">{dict.stay.rulesLabel}</div>
           <StayPolicies key={session} stay={dict.stay} variant="modal" />
           <a className="booking-conditions-link" href={conditionsHref} onClick={showAllConditions}>{dict.bookingModal.viewAll}<ArrowIcon diagonal /></a>
-        </div>
-        <footer className="booking-modal-footer">
-          <p>{dict.bookingModal.helper}</p>
-          <a className="button button-blue booking-continue" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">{dict.bookingModal.continue}<ArrowIcon diagonal /></a>
+        </div>}
+        <footer className={`booking-modal-footer${isDateStep ? " booking-modal-footer-dates" : ""}`}>
+          <p>{isDateStep ? dict.bookingModal.redirectNotice : dict.bookingModal.helper}</p>
+          {!isDateStep && <div className="booking-modal-actions">
+            <button ref={checkDatesRef} type="button" className="button button-blue booking-check-dates" onClick={showDateSelector}>{dict.bookingModal.checkDates}</button>
+          </div>}
         </footer>
       </section>
     </dialog>

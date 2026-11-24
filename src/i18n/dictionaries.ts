@@ -26,7 +26,11 @@ export type Dictionary = {
     curfew: string; curfewSummary: string; curfewBody: string;
     pets: string; petsSummary: string; petsBody: string;
   };
-  bookingModal: { title: string; subtitle: string; close: string; continue: string; helper: string; viewAll: string };
+  bookingModal: {
+    title: string; subtitle: string; close: string; helper: string; viewAll: string;
+    checkDates: string; chooseDatesTitle: string; chooseDatesSubtitle: string;
+    backToConditions: string; widgetTitle: string; widgetLoading: string; redirectNotice: string;
+  };
   cta: { kicker: string; title: string; accent: string; body: string; book: string; instagram: string };
   footer: { tagline: string; rooms: string; experience: string; location: string; info: string; contact: string; top: string; rights: string };
 };
@@ -43,11 +47,24 @@ const es: Dictionary = {
     private: { title: "Habitaciones privadas", description: "Más privacidad para parejas, amigos o quienes prefieren un espacio propio.", alt: "Habitación privada real de HAKU Hostel Lima", details: ["Espacio privado", "Opciones para dos huéspedes", "Wi‑Fi incluido"] },
     pageTitle: "Encuentra tu", pageAccent: "forma de descansar.", pageBody: "Conoce las categorías disponibles en HAKU Lima. Los tipos exactos, condiciones y disponibilidad se confirman en nuestro motor de reservas.", back: "Volver a la experiencia",
   },
-  spaces: { kicker: "03 / Conoce HAKU", title: "Más que un", accent: "hostel.", body: "Un espacio social y tranquilo para conocer viajeros, compartir una partida y descansar antes de seguir recorriendo Perú.", link: "Nuestra experiencia", lobby: "Áreas comunes", dining: "Comedor compartido", patio: "Patio HAKU" },
-  gallery: { kicker: "05 / Galería", title: "Así se siente", accent: "HAKU.", body: "Ocho fotografías reales para conocer nuestros espacios antes de llegar.", open: "Ver las 8 fotos", close: "Cerrar galería", previous: "Foto anterior", next: "Foto siguiente", imageOf: "Foto {current} de {total}", captions: ["Patio principal", "Arcos y ping-pong", "Dormitorio compartido", "Patio por la noche", "Habitación privada", "Sala común", "Ping-pong", "Terraza cubierta"], alts: ["Patio principal de ladrillo de HAKU Hostel Lima", "Arcos azules y mesa de ping-pong en HAKU Hostel Lima", "Dormitorio compartido con literas en HAKU Hostel Lima", "Patio iluminado de HAKU Hostel Lima por la noche", "Habitación privada real de HAKU Hostel Lima", "Sala común con sofás de HAKU Hostel Lima", "Mesa de ping-pong en el patio de HAKU Hostel Lima", "Terraza cubierta con mesas en HAKU Hostel Lima"] },
+  spaces: { kicker: "03 / Conoce HAKU", title: "Más que un", accent: "hostel.", body: "Un espacio social y tranquilo para conocer viajeros, compartir una partida y descansar antes de seguir recorriendo Perú.", link: "Nuestra experiencia", lobby: "Sala común", dining: "Arte y detalles HAKU", patio: "Patio y ping-pong" },
+  gallery: { kicker: "05 / Galería", title: "Así se siente", accent: "HAKU.", body: "Ocho fotografías reales para conocer nuestros espacios antes de llegar.", open: "Ver las 8 fotos", close: "Cerrar galería", previous: "Foto anterior", next: "Foto siguiente", imageOf: "Foto {current} de {total}", captions: ["Entrada de HAKU", "Patio de ladrillo", "Sala común", "Ping-pong en el patio", "Zona de ejercicios", "Murales de HAKU", "Patio social", "Arte HAKU"], alts: ["Entrada real de HAKU Hostel Lima con arco azul, ladrillos y plantas", "Patio de HAKU Hostel Lima con mesas, plantas y arcos de ladrillo", "Sala común de HAKU Hostel Lima con mesas y decoración peruana", "Mesa de ping-pong en el patio de HAKU Hostel Lima", "Zona de ejercicios al aire libre de HAKU Hostel Lima", "Escaleras azules y murales de HAKU Hostel Lima", "Patio social de HAKU Hostel Lima con ping-pong y áreas para sentarse", "Pintura y rincón de lectura de HAKU Hostel Lima"] },
   location: { kicker: "06 / Ubicación", title: "Miraflores es tu", accent: "punto de partida.", body: "Estamos a una cuadra del Malecón de la Costa Verde, en un barrio fácil de recorrer y conectado con la ciudad.", district: "Miraflores", coast: "Malecón / Costa Verde", center: "7.9 km del centro", map: "HAKU está aquí", open: "Abrir en Google Maps" },
   stay: { kicker: "04 / Antes de reservar", title: "Todo claro", accent: "antes de llegar.", body: "Consulta los horarios y las reglas reales del hostel para una estadía sin sorpresas.", noticeTitle: "Información importante", noticeBody: "Los horarios siempre permanecen visibles y cada regla puede consultarse por separado.", rulesLabel: "Reglas del hostel", bookAfterRules: "Continuar a la reserva", checkIn: "Desde las 14:00", checkOut: "Hasta las 11:00", checkInTime: "14:00", checkOutTime: "11:00", payment: "Pagos", paymentSummary: "Al llegar", paymentBody: "Pago al llegar en efectivo, con tarjeta de crédito o débito.", cancellation: "Política de cancelación", cancellationSummary: "Hasta 5 días antes", cancellationBody: "Cancela hasta 5 días antes de la llegada. Una cancelación tardía o no presentarse puede generar el cobro total de la estadía.", curfew: "Acceso", curfewSummary: "Sin toque de queda", curfewBody: "Sin horario de cierre. Puedes entrar y salir libremente; la recepción funciona las 24 horas.", pets: "Mascotas", petsSummary: "No permitidas", petsBody: "No se permiten mascotas en el alojamiento." },
-  bookingModal: { title: "Antes de reservar", subtitle: "Conoce los detalles importantes de tu estancia en HAKU", close: "Cerrar información de reserva", continue: "Continuar con mi reserva", helper: "A continuación podrás consultar disponibilidad y elegir tu alojamiento", viewAll: "Ver todas las condiciones" },
+  bookingModal: {
+    title: "Antes de reservar",
+    subtitle: "Conoce los detalles importantes de tu estancia en HAKU",
+    close: "Cerrar información de reserva",
+    helper: "A continuación podrás consultar disponibilidad y elegir tu alojamiento",
+    viewAll: "Ver todas las condiciones",
+    checkDates: "Comenzar mi reserva",
+    chooseDatesTitle: "Completa tu reserva",
+    chooseDatesSubtitle: "Elige tus fechas, habitación y forma de pago sin salir de HAKU.",
+    backToConditions: "Volver a las condiciones",
+    widgetTitle: "Motor de reservas de HAKU HOSTEL",
+    widgetLoading: "Cargando el motor de reservas…",
+    redirectNotice: "Tu selección y el pago se procesan de forma segura dentro de esta ventana.",
+  },
   cta: { kicker: "Tu próxima parada", title: "¿Listo para", accent: "vivir Lima?", body: "Reserva tu estancia en HAKU y empieza tu próxima aventura desde Miraflores.", book: "Reservar ahora", instagram: "Seguir en Instagram" },
   footer: { tagline: "Un lugar para llegar.\nUn lugar para conectar.", rooms: "Habitaciones", experience: "Conoce HAKU", location: "Ubicación", info: "Antes de reservar", contact: "Instagram", top: "Volver arriba", rights: "Todos los derechos reservados." },
 };
@@ -64,11 +81,24 @@ const en: Dictionary = {
     private: { title: "Private rooms", description: "More privacy for couples, friends or anyone who prefers a space of their own.", alt: "Real private room at HAKU Hostel Lima", details: ["Private space", "Options for two guests", "Wi‑Fi included"] },
     pageTitle: "Find your", pageAccent: "way to rest.", pageBody: "Explore the categories available at HAKU Lima. Exact room types, conditions and availability are confirmed in our booking engine.", back: "Back to the experience",
   },
-  spaces: { kicker: "03 / Discover HAKU", title: "More than a", accent: "hostel.", body: "A calm, social space to meet travellers, share a game and rest before continuing your journey through Peru.", link: "Our experience", lobby: "Common areas", dining: "Shared dining room", patio: "HAKU courtyard" },
-  gallery: { kicker: "05 / Gallery", title: "This is what", accent: "HAKU feels like.", body: "Eight real photographs to explore our spaces before you arrive.", open: "View all 8 photos", close: "Close gallery", previous: "Previous photo", next: "Next photo", imageOf: "Photo {current} of {total}", captions: ["Main courtyard", "Arches and ping-pong", "Shared dorm", "Courtyard at night", "Private room", "Common lounge", "Ping-pong", "Covered terrace"], alts: ["Brick main courtyard at HAKU Hostel Lima", "Blue arches and ping-pong table at HAKU Hostel Lima", "Shared bunk dorm at HAKU Hostel Lima", "Lit courtyard at HAKU Hostel Lima at night", "Real private room at HAKU Hostel Lima", "Common lounge with sofas at HAKU Hostel Lima", "Ping-pong table in the courtyard at HAKU Hostel Lima", "Covered terrace with tables at HAKU Hostel Lima"] },
+  spaces: { kicker: "03 / Discover HAKU", title: "More than a", accent: "hostel.", body: "A calm, social space to meet travellers, share a game and rest before continuing your journey through Peru.", link: "Our experience", lobby: "Common lounge", dining: "HAKU art and details", patio: "Courtyard and ping-pong" },
+  gallery: { kicker: "05 / Gallery", title: "This is what", accent: "HAKU feels like.", body: "Eight real photographs to explore our spaces before you arrive.", open: "View all 8 photos", close: "Close gallery", previous: "Previous photo", next: "Next photo", imageOf: "Photo {current} of {total}", captions: ["HAKU entrance", "Brick courtyard", "Common lounge", "Courtyard ping-pong", "Exercise area", "HAKU murals", "Social courtyard", "HAKU art"], alts: ["Real entrance of HAKU Hostel Lima with blue arch, brickwork and plants", "HAKU Hostel Lima courtyard with tables, plants and brick arches", "HAKU Hostel Lima common lounge with tables and Peruvian decoration", "Ping-pong table in the courtyard at HAKU Hostel Lima", "Outdoor exercise area at HAKU Hostel Lima", "Blue stairs and murals at HAKU Hostel Lima", "HAKU Hostel Lima social courtyard with ping-pong and seating areas", "Painting and reading corner at HAKU Hostel Lima"] },
   location: { kicker: "06 / Location", title: "Miraflores is your", accent: "starting point.", body: "We are one block from the Costa Verde boardwalk, in a walkable neighbourhood connected to the rest of the city.", district: "Miraflores", coast: "Boardwalk / Costa Verde", center: "7.9 km from the city centre", map: "HAKU is here", open: "Open in Google Maps" },
   stay: { kicker: "04 / Before booking", title: "Everything clear", accent: "before you arrive.", body: "Check the hostel's real times and rules for a stay with no surprises.", noticeTitle: "Important information", noticeBody: "Times remain visible and each rule can be reviewed separately.", rulesLabel: "Hostel rules", bookAfterRules: "Continue to booking", checkIn: "From 2:00 pm", checkOut: "By 11:00 am", checkInTime: "2:00 pm", checkOutTime: "11:00 am", payment: "Payments", paymentSummary: "On arrival", paymentBody: "Pay on arrival by cash, credit card or debit card.", cancellation: "Cancellation policy", cancellationSummary: "Up to 5 days before", cancellationBody: "Cancel up to 5 days before arrival. Late cancellation or no-show may result in the full stay being charged.", curfew: "Access", curfewSummary: "No curfew", curfewBody: "There is no curfew. Come and go freely; reception is open 24 hours a day.", pets: "Pets", petsSummary: "Not allowed", petsBody: "Pets are not allowed at the property." },
-  bookingModal: { title: "Before booking", subtitle: "Review the important details of your stay at HAKU", close: "Close booking information", continue: "Continue with my booking", helper: "Next, you can check availability and choose your accommodation", viewAll: "View all conditions" },
+  bookingModal: {
+    title: "Before booking",
+    subtitle: "Review the important details of your stay at HAKU",
+    close: "Close booking information",
+    helper: "Next, you can check availability and choose your accommodation",
+    viewAll: "View all conditions",
+    checkDates: "Start my booking",
+    chooseDatesTitle: "Complete your booking",
+    chooseDatesSubtitle: "Choose your dates, room and payment method without leaving HAKU.",
+    backToConditions: "Back to the conditions",
+    widgetTitle: "HAKU HOSTEL booking engine",
+    widgetLoading: "Loading the booking engine…",
+    redirectNotice: "Your selection and payment are processed securely within this window.",
+  },
   cta: { kicker: "Your next stop", title: "Ready to", accent: "experience Lima?", body: "Book your stay at HAKU and start your next adventure from Miraflores.", book: "Book now", instagram: "Follow on Instagram" },
   footer: { tagline: "A place to arrive.\nA place to connect.", rooms: "Rooms", experience: "Discover HAKU", location: "Location", info: "Before booking", contact: "Instagram", top: "Back to top", rights: "All rights reserved." },
 };
