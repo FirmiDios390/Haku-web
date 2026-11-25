@@ -74,7 +74,7 @@ export function GalleryLightbox({ images, alts, captions, labels }: GalleryLight
         <div className="lightbox-image">
           <Image src={images[activeIndex].src} alt={alts[activeIndex]} fill sizes="95vw" className="contain-image" />
         </div>
-        <div className="lightbox-meta"><span>{counter}</span><strong>{captions[activeIndex]}</strong></div>
+        <div className="lightbox-meta"><span>{counter}</span></div>
         <button type="button" className="lightbox-nav lightbox-prev" onClick={showPrevious} aria-label={labels.previous}><ChevronLeft aria-hidden="true" /></button>
         <button type="button" className="lightbox-nav lightbox-next" onClick={showNext} aria-label={labels.next}><ChevronRight aria-hidden="true" /></button>
       </div>

@@ -25,13 +25,13 @@ type HostelInformation = {
     schedule: readonly { id: ScheduleIcon; label: string; value: string; note: string }[];
     flexibleHoursNote: string;
     rates: readonly { id: RateIcon; label: string; value: string; body: string }[];
-    policies: readonly { id: PolicyIcon; title: string; summary: string; body: string; isLong?: boolean }[];
+    policies: readonly { id: PolicyIcon; title: string; summary: string; body: string }[];
   };
 };
 
 const es: HostelInformation = {
   services: {
-    kicker: "03 / Servicios e instalaciones",
+    kicker: "04 / Servicios e instalaciones",
     title: "Lo esencial para",
     accent: "vivir HAKU.",
     body: "Espacios para compartir y ayuda práctica durante tu paso por Lima, sin convertir la experiencia en una lista interminable.",
@@ -91,7 +91,7 @@ const es: HostelInformation = {
       { id: "payment", label: "Pago al llegar", value: "Efectivo o tarjeta", body: "Puedes pagar al llegar en efectivo, con tarjeta de crédito o débito." },
     ],
     policies: [
-      { id: "cancellation", title: "Política de cancelación", summary: "Hasta 5 días antes", body: "Cancela hasta 5 días antes de la llegada. Una cancelación tardía o no presentarse puede generar el cobro total de la estadía.", isLong: true },
+      { id: "cancellation", title: "Política de cancelación", summary: "Hasta 5 días antes", body: "Cancela hasta 5 días antes de la llegada. Una cancelación tardía o no presentarse puede generar el cobro total de la estadía." },
       { id: "breakfast", title: "Desayuno incluido", summary: "De 07:00 a 09:00", body: "El desayuno está incluido y se sirve todos los días de 07:00 a 09:00." },
       { id: "access", title: "Acceso", summary: "Sin toque de queda", body: "No hay horario de cierre. Puedes entrar y salir libremente; la recepción funciona las 24 horas." },
       { id: "pets", title: "Mascotas", summary: "No permitidas", body: "No se permiten mascotas en el alojamiento." },
@@ -102,7 +102,7 @@ const es: HostelInformation = {
 
 const en: HostelInformation = {
   services: {
-    kicker: "03 / Services & facilities",
+    kicker: "04 / Services & facilities",
     title: "The essentials for",
     accent: "experiencing HAKU.",
     body: "Social spaces and practical support for your time in Lima, presented without turning the experience into an endless checklist.",
@@ -162,7 +162,7 @@ const en: HostelInformation = {
       { id: "payment", label: "Pay on arrival", value: "Cash or card", body: "Pay on arrival by cash, credit card or debit card." },
     ],
     policies: [
-      { id: "cancellation", title: "Cancellation policy", summary: "Up to 5 days before", body: "Cancel up to 5 days before arrival. Late cancellation or no-show may result in the full stay being charged.", isLong: true },
+      { id: "cancellation", title: "Cancellation policy", summary: "Up to 5 days before", body: "Cancel up to 5 days before arrival. Late cancellation or no-show may result in the full stay being charged." },
       { id: "breakfast", title: "Breakfast included", summary: "From 7:00 to 9:00 am", body: "Breakfast is included and served every day from 7:00 to 9:00 am." },
       { id: "access", title: "Access", summary: "No curfew", body: "There is no curfew. Come and go freely; reception is open 24 hours a day." },
       { id: "pets", title: "Pets", summary: "Not allowed", body: "Pets are not allowed at the property." },

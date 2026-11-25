@@ -68,7 +68,7 @@ export function TrustStrip({ dict }: SectionProps) {
     { icon: Clock3, label: dict.trust.reception, note: "" },
     { icon: MapPin, label: dict.trust.award, note: dict.trust.awardNote },
   ];
-  return <section className="trust-strip" aria-label="HAKU highlights"><div className="shell trust-grid">
+  return <section className="trust-strip" aria-label="HAKU highlights" style={{ paddingBlockEnd: "clamp(16px, 3vw, 28px)" }}><div className="shell trust-grid">
     {items.map(({ icon: Icon, label, note }) => <div className="trust-item" key={label}><Icon {...iconProps} /><span><strong>{label}</strong>{note && <small>{note}</small>}</span></div>)}
   </div></section>;
 }

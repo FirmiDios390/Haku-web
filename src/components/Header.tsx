@@ -14,8 +14,8 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
   const rooms = `${roomsPath(locale)}#rooms-top`;
   const navigation = [
     { label: dict.nav.home, href: `${home}#top` },
-    { label: dict.nav.rooms, href: rooms },
     { label: dict.nav.experience, href: `${home}#experience` },
+    { label: dict.nav.rooms, href: rooms },
     { label: dict.nav.gallery, href: `${home}#gallery` },
     { label: dict.nav.location, href: `${home}#location` },
     { label: dict.nav.info, href: `${home}#stay-info` },
