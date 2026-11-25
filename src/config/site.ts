@@ -20,7 +20,6 @@ export const site = {
   mapEmbedUrl: "https://www.google.com/maps?q=HAKU+HOSTEL+Lima,+C.+Comandante+Juan+G.+Moore+304,+Miraflores+15074,+Peru&z=16&output=embed",
   images: {
     entrance: "/images/Horizontal/Entrada.JPEG",
-    entranceMobile: "/images/Vertical/Entrada_vertical.JPEG",
     homeSharedRoom: "/images/Habitaciones/dc587f27.avif",
     homePrivateRoom: "/images/Habitaciones/ffba815c.avif",
     lobby: "/images/Horizontal/Sala.JPEG",

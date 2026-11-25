@@ -1,4 +1,4 @@
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import {
   BusFront, CircleDot, Clock3, ClockArrowUp, Coffee, MapPin, MapPinned,
@@ -26,25 +26,6 @@ const serviceIcons = {
 
 export function HeroSection({ dict }: SectionProps) {
   const entranceAlt = "Entrada real de HAKU Hostel Lima con arco azul, ladrillos y plantas";
-  const { props: { srcSet: desktopEntrance, ...desktopEntranceProps } } = getImageProps({
-    src: site.images.entrance,
-    alt: entranceAlt,
-    width: 2048,
-    height: 1536,
-    sizes: "58vw",
-    quality: 90,
-    priority: true,
-  });
-  const { props: { srcSet: mobileEntrance } } = getImageProps({
-    src: site.images.entranceMobile,
-    alt: entranceAlt,
-    width: 1536,
-    height: 2048,
-    sizes: "100vw",
-    quality: 90,
-    priority: true,
-  });
-
   return <section id="top" className="hero shell" aria-labelledby="hero-title">
     <div className="hero-copy">
       <p className="eyebrow"><span />{dict.hero.eyebrow}</p>
@@ -53,10 +34,9 @@ export function HeroSection({ dict }: SectionProps) {
       <div className="hero-actions"><BookingLink className="button button-blue">{dict.hero.cta}</BookingLink><a className="button button-terracotta" href="#gallery">{dict.hero.galleryCta}<ArrowIcon diagonal /></a></div>
     </div>
     <div className="hero-media"><figure className="hero-visual">
-      <picture className="hero-picture">
-        <source media="(max-width: 899px)" srcSet={mobileEntrance} />
-        <img {...desktopEntranceProps} srcSet={desktopEntrance} />
-      </picture>
+      <div className="hero-picture">
+        <Image src={site.images.entrance} alt={entranceAlt} fill sizes="(max-width: 899px) calc(100vw - 32px), 58vw" quality={90} preload />
+      </div>
     </figure></div>
   </section>;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { X } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
 import { ArrowIcon } from "@/components/Icons";
 import { BookingFlowContext } from "@/components/BookingFlowContext";
 import { StayPolicies, StayRates, StaySchedule } from "@/components/StayDetails";
@@ -172,7 +172,16 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
       <section className={`booking-sheet${isDateStep ? " booking-sheet-dates" : ""}`}>
         <header className="booking-modal-header">
           <div>
-            {isDateStep && <button ref={backToConditionsRef} type="button" className="booking-modal-back" onClick={showConditions}>{dict.bookingModal.backToConditions}</button>}
+            {isDateStep && <button
+              ref={backToConditionsRef}
+              type="button"
+              className="booking-modal-back"
+              aria-label={dict.bookingModal.backToConditions}
+              onClick={showConditions}
+            >
+              <ArrowLeft aria-hidden="true" />
+              <span>{dict.bookingModal.backToConditions}</span>
+            </button>}
             <span>HAKU HOSTEL / LIMA</span>
             <h2 id="booking-modal-title">{isDateStep ? dict.bookingModal.chooseDatesTitle : dict.bookingModal.title}</h2>
             <p id="booking-modal-subtitle">{isDateStep ? dict.bookingModal.chooseDatesSubtitle : dict.bookingModal.subtitle}</p>
