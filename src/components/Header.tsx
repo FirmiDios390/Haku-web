@@ -18,7 +18,7 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
     { label: dict.nav.experience, href: `${home}#experience` },
     { label: dict.nav.gallery, href: `${home}#gallery` },
     { label: dict.nav.location, href: `${home}#location` },
-    { label: dict.nav.info, href: `${home}#stay-info`, emphasis: true },
+    { label: dict.nav.info, href: `${home}#stay-info` },
   ];
   useEffect(() => {
     if (!open) return;
@@ -53,7 +53,7 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
           <Image src={site.logo} alt="" width={88} height={67} priority unoptimized />
         </Link>
         <nav className="desktop-nav" aria-label={locale === "es" ? "Navegación principal" : "Primary navigation"}>
-          {navigation.map((item) => <Link className={item.emphasis ? "nav-emphasis" : undefined} key={item.href} href={item.href} onClick={(event) => followNavigation(event, item.href)}>{item.label}</Link>)}
+          {navigation.map((item) => <Link key={item.href} href={item.href} onClick={(event) => followNavigation(event, item.href)}>{item.label}</Link>)}
         </nav>
         <div className="header-actions">
           <a className="language-switch" href={languageHref} hrefLang={locale === "es" ? "en" : "es"} onClick={switchLanguage}>{locale === "es" ? "EN" : "ES"}</a>
@@ -62,7 +62,7 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
         </div>
       </div>
       <nav id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-label={locale === "es" ? "Navegación móvil" : "Mobile navigation"} inert={!open}>
-        {navigation.map((item, index) => <Link className={item.emphasis ? "nav-emphasis" : undefined} key={item.href} href={item.href} onClick={(event) => followNavigation(event, item.href)}><span>0{index + 1}</span>{item.label}<ArrowIcon diagonal /></Link>)}
+        {navigation.map((item, index) => <Link key={item.href} href={item.href} onClick={(event) => followNavigation(event, item.href)}><span>0{index + 1}</span>{item.label}<ArrowIcon diagonal /></Link>)}
         <div className="mobile-menu-bottom">
           <a href={languageHref} onClick={switchLanguage}>{locale === "es" ? "English" : "Español"}</a>
           <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}><InstagramIcon /> Instagram</a>

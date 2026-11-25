@@ -53,22 +53,15 @@ export function GalleryLightbox({ images, alts, captions, labels }: GalleryLight
     if (event.key === "ArrowRight") showNext();
   };
 
-  const featured = images.slice(0, 6);
+  const featured = images.slice(0, 4);
   const counter = labels.imageOf
     .replace("{current}", String(activeIndex + 1))
     .replace("{total}", String(images.length));
 
   return <>
-    <div className="gallery-bento">
+    <div className="gallery-editorial">
       {featured.map((image, index) => <button type="button" className={`gallery-tile gallery-tile-${index + 1}`} key={image.src} onClick={() => openGallery(index)} aria-label={`${labels.open}: ${captions[index]}`}>
-        <Image src={image.src} alt={alts[index]} fill sizes="(max-width: 980px) 82vw, 33vw" className="cover-image" style={{ objectPosition: image.position }} />
-        <span>0{index + 1} / {captions[index]}</span>
-      </button>)}
-    </div>
-    <div className="gallery-rail" aria-label={labels.open}>
-      {featured.map((image, index) => <button type="button" className="gallery-rail-item" key={image.src} onClick={() => openGallery(index)} aria-label={`${labels.open}: ${captions[index]}`}>
-        <Image src={image.src} alt={alts[index]} fill sizes="82vw" className="cover-image" style={{ objectPosition: image.position }} />
-        <span>0{index + 1} / {captions[index]}</span>
+        <Image src={image.src} alt={alts[index]} fill sizes="(max-width: 699px) 100vw, 50vw" className="cover-image" style={{ objectPosition: image.position }} />
       </button>)}
     </div>
     <button type="button" className="button button-outline gallery-open" onClick={() => openGallery(0)}><Images size={19} aria-hidden="true" />{labels.open}</button>

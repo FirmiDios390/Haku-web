@@ -4,7 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { ArrowIcon } from "@/components/Icons";
 import { BookingFlowContext } from "@/components/BookingFlowContext";
-import { StayPolicies, StaySchedule } from "@/components/StayDetails";
+import { StayPolicies, StayRates, StaySchedule } from "@/components/StayDetails";
+import { getHostelInformation } from "@/config/hostelInfo";
 import { homePath, site, type Locale } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -17,6 +18,7 @@ type BookingFlowProps = {
 type BookingStep = "conditions" | "dates";
 
 export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
+  const hostelInfo = getHostelInformation(locale);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const checkDatesRef = useRef<HTMLButtonElement>(null);
@@ -160,7 +162,7 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
     <dialog
       ref={dialogRef}
       id="booking-modal"
-      className="booking-dialog"
+      className={isDateStep ? "booking-dialog booking-dialog-dates" : "booking-dialog"}
       data-closing={isClosing ? "true" : undefined}
       aria-labelledby="booking-modal-title"
       aria-describedby="booking-modal-subtitle"
@@ -190,16 +192,14 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
             onLoad={() => setWidgetLoaded(true)}
           />
         </div> : <div className="booking-modal-scroll">
-          <StaySchedule stay={dict.stay} variant="modal" />
-          <div className="booking-rules-label">{dict.stay.rulesLabel}</div>
-          <StayPolicies key={session} stay={dict.stay} variant="modal" />
+          <StaySchedule info={hostelInfo.stay} labels={dict.stay} variant="modal" />
+          <StayRates info={hostelInfo.stay} labels={dict.stay} variant="modal" />
+          <StayPolicies key={session} info={hostelInfo.stay} labels={dict.stay} variant="modal" />
           <a className="booking-conditions-link" href={conditionsHref} onClick={showAllConditions}>{dict.bookingModal.viewAll}<ArrowIcon diagonal /></a>
         </div>}
         <footer className={`booking-modal-footer${isDateStep ? " booking-modal-footer-dates" : ""}`}>
+          {!isDateStep && <button ref={checkDatesRef} type="button" className="button button-blue booking-check-dates" onClick={showDateSelector}>{dict.bookingModal.checkDates}<ArrowIcon diagonal /></button>}
           <p>{isDateStep ? dict.bookingModal.redirectNotice : dict.bookingModal.helper}</p>
-          {!isDateStep && <div className="booking-modal-actions">
-            <button ref={checkDatesRef} type="button" className="button button-blue booking-check-dates" onClick={showDateSelector}>{dict.bookingModal.checkDates}</button>
-          </div>}
         </footer>
       </section>
     </dialog>
