@@ -22,7 +22,7 @@ npm start
 
 Abre [http://127.0.0.1:4173](http://127.0.0.1:4173) para probar el HTML de `out/` con el mismo handler de idioma que se usará en Pages. Para probar en el mismo puerto sin ese handler, detén el servidor y ejecuta `npm start -- --static-only`. `npm run dev` muestra la entrada estática en `/`.
 
-Los comandos de desarrollo y compilación generan variantes de fotografía con el codificador incluido en Next.js. Conserva las dependencias opcionales del lockfile para que el codificador disponga de su binario nativo. Configuración de producción y pruebas en [Cloudflare Pages](docs/CLOUDFLARE_PAGES.md).
+Antes de compilar, `next.config.ts` genera las variantes de fotografía con el codificador incluido en Next.js, también cuando Cloudflare ejecuta directamente `npx next build`. Conserva las dependencias opcionales del lockfile para que el codificador disponga de su binario nativo. `npm run build` además genera las cabeceras de seguridad para Pages. Configuración de producción y pruebas en [Cloudflare Pages](docs/CLOUDFLARE_PAGES.md).
 
 ## Actualizar contenido
 

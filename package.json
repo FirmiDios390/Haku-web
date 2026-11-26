@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/build-photos.mjs",
     "dev": "next dev --hostname 127.0.0.1",
-    "prebuild": "node scripts/build-photos.mjs",
     "build": "next build && node scripts/build-headers.mjs",
     "start": "node scripts/preview-export.mjs",
     "pretypecheck": "node scripts/build-photos.mjs",
