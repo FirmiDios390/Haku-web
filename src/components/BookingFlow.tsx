@@ -6,6 +6,7 @@ import { ArrowIcon } from "@/components/Icons";
 import { BookingFlowContext } from "@/components/BookingFlowContext";
 import { StayPolicies, StayRates, StaySchedule } from "@/components/StayDetails";
 import { getHostelInformation } from "@/config/hostelInfo";
+import { trackBookingInteraction } from "@/config/analytics";
 import { homePath, site, type Locale } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -77,6 +78,7 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
     if (scrollbarWidth) body.style.paddingRight = `${scrollbarWidth}px`;
 
     dialog.showModal();
+    trackBookingInteraction("booking_modal_open");
     requestAnimationFrame(() => closeRef.current?.focus());
 
     return () => {
@@ -122,7 +124,7 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
       return;
     }
     setIsClosing(true);
-    closeTimerRef.current = setTimeout(finishClose, 180);
+    closeTimerRef.current = setTimeout(finishClose, 240);
   }, [finishClose, isClosing]);
 
   const conditionsHref = `${homePath(locale)}#stay-info`;
@@ -147,6 +149,7 @@ export function BookingFlow({ children, locale, dict }: BookingFlowProps) {
   const contextValue = useMemo(() => ({ openBooking }), [openBooking]);
 
   const showDateSelector = () => {
+    trackBookingInteraction("booking_engine_open");
     setWidgetLoaded(false);
     setBookingStep("dates");
   };

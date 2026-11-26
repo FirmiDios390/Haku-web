@@ -12,11 +12,11 @@ import "../globals.css";
 import { isLocale, locales, site } from "@/config/site";
 import { getDictionary } from "@/i18n/dictionaries";
 import { BookingFlow } from "@/components/BookingFlow";
+import { siteOrigin } from "@/config/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteOrigin),
   icons: { icon: site.logo },
-  openGraph: { type: "website", siteName: site.name, images: [site.images.entrance] },
 };
 
 export function generateStaticParams() {

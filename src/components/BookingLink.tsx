@@ -3,6 +3,7 @@
 import { useContext, type MouseEvent } from "react";
 import { site } from "@/config/site";
 import { ArrowIcon } from "@/components/Icons";
+import { trackBookingInteraction } from "@/config/analytics";
 import { BookingFlowContext } from "@/components/BookingFlowContext";
 
 type BookingLinkProps = {
@@ -14,7 +15,10 @@ type BookingLinkProps = {
 export function BookingLink({ children, className = "", onOpen }: BookingLinkProps) {
   const bookingFlow = useContext(BookingFlowContext);
   const openModal = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !bookingFlow) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !bookingFlow) {
+      trackBookingInteraction("booking_external_click");
+      return;
+    }
     event.preventDefault();
     onOpen?.();
     bookingFlow.openBooking(event.currentTarget);

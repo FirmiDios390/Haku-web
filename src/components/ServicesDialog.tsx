@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { site } from "@/config/site";
 import { getHostelInformation } from "@/config/hostelInfo";
+import { useDialogExit } from "@/components/useDialogExit";
 
 type ServicesCopy = ReturnType<typeof getHostelInformation>["services"];
 
@@ -13,10 +14,11 @@ export function ServicesDialog({ services }: { services: ServicesCopy }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const closeDialog = useCallback(() => {
+  const exitDialog = useDialogExit();
+  const closeDialog = () => exitDialog(dialogRef.current, () => {
     dialogRef.current?.close();
     setIsOpen(false);
-  }, []);
+  });
 
   useEffect(() => {
     if (!isOpen) return;

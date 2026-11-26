@@ -4,3 +4,5 @@ out/
 *.tsbuildinfo
 .env*.local
 tmp/
+/public/_photos/
+/src/generated/photos.json

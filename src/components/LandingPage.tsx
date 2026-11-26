@@ -1,5 +1,6 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { LandingMotion } from "@/components/LandingMotion";
 import {
   FinalCtaSection, GallerySection, HeroSection, LocationSection,
   RoomsPreview, ServicesSection, SpacesSection, StayInfoSection, TrustStrip,
@@ -9,7 +10,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 
 export function LandingPage({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const alternate = locale === "es" ? "/en" : "/es";
-  return <><Header locale={locale} dict={dict} languageHref={alternate} />
+  return <><LandingMotion /><Header locale={locale} dict={dict} languageHref={alternate} />
           <main id="main-content">
             <HeroSection locale={locale} dict={dict} />
             <TrustStrip locale={locale} dict={dict} />

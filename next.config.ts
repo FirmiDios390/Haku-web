@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   agentRules: false,
-  images: {
-    qualities: [75, 90],
-  },
+  output: "export",
 };
 
 export default nextConfig;

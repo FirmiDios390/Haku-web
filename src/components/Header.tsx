@@ -34,7 +34,8 @@ export function Header({ locale, dict, languageHref }: { locale: Locale; dict: D
     };
   }, [open]);
   const switchLanguage = () => {
-    document.cookie = `haku_locale=${locale === "es" ? "en" : "es"};path=/;max-age=31536000;samesite=lax`;
+    const secure = window.location.protocol === "https:" ? ";Secure" : "";
+    document.cookie = `haku_locale=${locale === "es" ? "en" : "es"};path=/;max-age=31536000;samesite=lax${secure}`;
     setOpen(false);
   };
   const followNavigation = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
